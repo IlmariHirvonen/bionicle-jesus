@@ -1,11 +1,13 @@
 extends Node
 class_name HealthSystem
 
+signal update_health(value)
 signal enemy_is_dead
 export var health:float = 100 setget set_health
 
 func set_health(value:float):
 	health += value
+	emit_signal("update_health", health)
 	if health <= 0.0:
 		emit_signal("enemy_is_dead")
 

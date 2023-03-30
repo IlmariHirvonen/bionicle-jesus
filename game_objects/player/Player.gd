@@ -31,6 +31,14 @@ func _input(event):
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-90), deg2rad(90))
 
 func _process(delta):
+	if $"%ShootingRay".is_colliding():
+		if  $"%ShootingRay".get_collider().is_in_group("enemy"):
+			$"%Crosshair".modulate = Color.red
+		else:
+			$"%Crosshair".modulate = Color.white
+	else:
+		$"%Crosshair".modulate = Color.white
+	
 	if Input.is_action_pressed("shoot") or auto_fire_weapon and can_fire:
 		overheat_value += rand_range(3,4)
 		overheat_value = clamp(overheat_value, 0.0, 100)

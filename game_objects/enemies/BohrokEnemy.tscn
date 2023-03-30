@@ -40,6 +40,8 @@ tracks/0/keys = {
 }
 
 [node name="BohrokEnemy" type="KinematicBody" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource( 3 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -52,6 +54,7 @@ shape = SubResource( 1 )
 
 [node name="HealthSystem" type="Node" parent="."]
 script = ExtResource( 2 )
+health = 140.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )

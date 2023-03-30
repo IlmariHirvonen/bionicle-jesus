@@ -62,6 +62,7 @@ func _physics_process(delta):
 		current_jump = 0
 		velocity.y = 0
 	if Input.is_action_just_pressed("jump") and current_jump != jump_count:
+		Fmod.play_one_shot("event:/jump", self)
 		current_jump += 1
 		velocity.y = jump_height
 	var direction:Vector3 = Vector3(Input.get_axis("move_l", "move_r"), 0 , Input.get_axis("move_f", "move_b"))

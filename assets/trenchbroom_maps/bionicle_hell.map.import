@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/bionicle_hell.map-1d91de808dfd83e398b26ae10e38c12d.tres"
+
+[deps]
+
+source_file="res://assets/trenchbroom_maps/bionicle_hell.map"
+dest_files=[ "res://.import/bionicle_hell.map-1d91de808dfd83e398b26ae10e38c12d.tres" ]
+
+[params]
+

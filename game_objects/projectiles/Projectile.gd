@@ -23,3 +23,5 @@ func _on_Area_body_entered(body):
 		if body.has_node("HealthSystem"):
 			body.get_node("HealthSystem").set_health(rand_range(-10.0,-15.0))
 		queue_free()
+	elif body.get_collision_layer() == 1:
+		queue_free()

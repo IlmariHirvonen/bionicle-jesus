@@ -39,6 +39,7 @@ func _process(delta):
 			$Cooldown.start()
 		if can_fire:
 			fire_weapon()
+			Fmod.play_one_shot("event:/shoot", self)
 			$FireRate.start()
 			can_fire = false
 		var tween:SceneTreeTween = get_tree().create_tween()

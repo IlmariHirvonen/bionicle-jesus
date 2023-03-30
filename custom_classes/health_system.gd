@@ -7,6 +7,12 @@ export var health:float = 100 setget set_health
 
 func set_health(value:float):
 	health += value
+	if(get_parent().name == "Player"):
+		Fmod.play_one_shot("event:/hurt", self)
+	else:
+		Fmod.play_one_shot("event:/hit", self)
+	
+	
 	emit_signal("update_health", health)
 	if health <= 0.0:
 		emit_signal("enemy_is_dead")

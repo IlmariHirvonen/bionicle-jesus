@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{78c90d17-f35d-4c67-bef5-bdde9ed2fd1c}">
+		<property name="volume">
+			<value>-10.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{8a5e52c5-916f-4a22-a094-e7ba20653c24}</destination>
 		</relationship>
@@ -95,7 +98,6 @@
 	<object class="MixerBusPanner" id="{1418fd72-9b9c-442b-a25e-13907bbaa892}" />
 	<object class="MixerBusEffectChain" id="{8a5e52c5-916f-4a22-a094-e7ba20653c24}">
 		<relationship name="effects">
-			<destination>{e975eb29-58bf-47e7-bbd6-23ecdc72a644}</destination>
 			<destination>{188cfeea-22a6-457a-a6ee-9ae8f9b91933}</destination>
 			<destination>{c8debc30-b641-4450-a87e-c259fddf992e}</destination>
 			<destination>{380618fc-b93c-4417-a57e-60d2e9f4c442}</destination>
@@ -112,11 +114,6 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{c140b823-8616-4b76-b343-3d990ec5540e}" />
-	<object class="GainEffect" id="{e975eb29-58bf-47e7-bbd6-23ecdc72a644}">
-		<relationship name="modulators">
-			<destination>{9e676d61-42cf-4193-b508-bfc75939d70b}</destination>
-		</relationship>
-	</object>
 	<object class="MixerBusFader" id="{188cfeea-22a6-457a-a6ee-9ae8f9b91933}" />
 	<object class="SpatialiserEffect" id="{c8debc30-b641-4450-a87e-c259fddf992e}" />
 	<object class="SFXReverbEffect" id="{380618fc-b93c-4417-a57e-60d2e9f4c442}">
@@ -162,35 +159,6 @@
 		</property>
 		<property name="amount">
 			<value>2</value>
-		</property>
-	</object>
-	<object class="ADSRModulator" id="{9e676d61-42cf-4193-b508-bfc75939d70b}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>gain</value>
-		</property>
-		<property name="initialValue">
-			<value>-80</value>
-		</property>
-		<property name="attackTime">
-			<value>0</value>
-		</property>
-		<property name="peakValue">
-			<value>-1.15555573</value>
-		</property>
-		<property name="holdTime">
-			<value>0</value>
-		</property>
-		<property name="decayTime">
-			<value>0</value>
-		</property>
-		<property name="releaseTime">
-			<value>580</value>
-		</property>
-		<property name="releaseShape">
-			<value>-0.356008708</value>
-		</property>
-		<property name="finalValue">
-			<value>-80</value>
 		</property>
 	</object>
 </objects>

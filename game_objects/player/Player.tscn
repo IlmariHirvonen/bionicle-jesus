@@ -102,7 +102,6 @@ margin_bottom = 30.0
 rect_min_size = Vector2( 300, 30 )
 custom_styles/fg = SubResource( 5 )
 custom_styles/bg = SubResource( 4 )
-value = 50.0
 percent_visible = false
 
 [node name="HealthSystem" type="Node" parent="."]
@@ -111,3 +110,4 @@ script = ExtResource( 5 )
 [connection signal="timeout" from="FireRate" to="." method="_on_FireRate_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
 [connection signal="enemy_is_dead" from="HealthSystem" to="." method="_on_HealthSystem_enemy_is_dead"]
+[connection signal="update_health" from="HealthSystem" to="." method="_on_HealthSystem_update_health"]

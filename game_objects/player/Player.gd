@@ -41,6 +41,8 @@ func _process(delta):
 			fire_weapon()
 			$FireRate.start()
 			can_fire = false
+		var tween:SceneTreeTween = get_tree().create_tween()
+		tween.tween_property($"%Overheat", "value", overheat_value, 0.2).set_trans(Tween.TRANS_CUBIC)
 
 func fire_weapon()->void:
 	$"%ShootingRay".set_cast_to(Vector3(rand_range(fire_spread.x * -1,fire_spread.x), rand_range(fire_spread.y * -1,fire_spread.y), -100))
@@ -78,9 +80,16 @@ func _on_FireRate_timeout():
 
 
 func _on_Cooldown_timeout():
-	can_fire = true
 	overheat_value = 0.0
+	var tween:SceneTreeTween = get_tree().create_tween()
+	yield(tween.tween_property($"%Overheat", "value", overheat_value, 0.2).set_trans(Tween.TRANS_CUBIC),"finished")
+	can_fire = true
 
 
 func _on_HealthSystem_enemy_is_dead():
 	get_tree().reload_current_scene()
+
+
+func _on_HealthSystem_update_health(value):
+	var tween:SceneTreeTween = get_tree().create_tween()
+	tween.tween_property($"%Health", "value", value, 0.2).set_trans(Tween.TRANS_CUBIC)

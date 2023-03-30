@@ -18,7 +18,7 @@ func set_health(value:float):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	emit_signal("update_health", health)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

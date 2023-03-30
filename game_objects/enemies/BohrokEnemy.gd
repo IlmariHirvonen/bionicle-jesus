@@ -22,8 +22,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not $NavigationAgent.is_target_reached():
-		current_state = STATES.FOLLOWING
 		$NavigationAgent.set_target_location(player.global_transform.origin)
+		current_state = STATES.FOLLOWING
 		var next_location:Vector3 = $NavigationAgent.get_next_location()
 		var current_pos:Vector3 = self.global_transform.origin
 		var dir:Vector3 = (next_location - current_pos)
@@ -62,3 +62,4 @@ func _on_AttackTimer_timeout():
 	if current_state == STATES.ATTACKING:
 		if player.has_node("HealthSystem"):
 			player.get_node("HealthSystem").set_health(rand_range(-5.0,-8.0))
+	$NavigationAgent.set_target_location(player.global_transform.origin)

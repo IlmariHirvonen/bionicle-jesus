@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{2edb489c-93b9-43e6-afdf-db009b453255}">
+		<property name="assetPath">
+			<value>Randomize5.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.3623356009070295</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{48b5ba69-a82b-48fa-a26f-b942c7e17dc7}</destination>
+		</relationship>
+	</object>
+</objects>

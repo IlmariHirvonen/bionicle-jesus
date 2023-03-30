@@ -16,4 +16,4 @@ func _ready():
 	Fmod.add_listener(0, self)
 	
 	# play some events
-	Fmod.play_one_shot("event:/test", self)
+	Fmod.play_one_shot("event:/main_song", self)

@@ -1,19 +1,26 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game_objects/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game_objects/enemies/BohrokEnemy.tscn" type="PackedScene" id=2]
 
+[sub_resource type="NavigationMesh" id=1]
+vertices = PoolVector3Array( -13.5, 0.45, -24.5, -24.5, 0.45, -24.5, -24.5, 0.45, -13.5, -24.5, 0.45, -2.25, -4.5, 0.45, -2.25, -4.5, 0.45, -4.25, -4.5, 0.45, -4.25, -2.25, 0.45, -4.5, -2.25, 0.45, -24.5, -13.5, 0.45, -24.5, -24.5, 0.45, -13.5, -24.5, 0.45, -2.25, -2.25, 0.45, -4.5, 2.5, 0.45, -4.5, 2.5, 0.45, -24.5, -2.25, 0.45, -24.5, 24.5, 0.45, -13.75, 24.5, 0.45, -24.5, 13.5, 0.45, -24.5, 4.5, 0.45, -4.5, 4.75, 0.45, -2.75, 24.5, 0.45, -3, 24.5, 0.45, -13.75, 13.5, 0.45, -24.5, 2.5, 0.45, -24.5, 2.5, 0.45, -24.5, 2.5, 0.45, -4.5, 4.5, 0.45, -4.5, -3.5, 2.45, -3.5, -3.5, 2.45, 3.5, 3.5, 2.45, 3.5, 3.5, 2.45, -3.5, 4.75, 0.45, -2.75, 4.75, 0.45, 2.75, 24.5, 0.45, 3, 24.5, 0.45, -3, -24.5, 0.45, 2.5, -4.5, 0.45, 2.5, -4.5, 0.45, -2.25, -24.5, 0.45, -2.25, -24.5, 0.45, 13.5, -24.5, 0.45, 24.5, -13.75, 0.45, 24.5, -3, 0.45, 24.5, -2.75, 0.45, 4.75, -4.5, 0.45, 4.5, -24.5, 0.45, 2.5, -24.5, 0.45, 13.5, -13.75, 0.45, 24.5, -4.5, 0.45, 4.5, -4.5, 0.45, 2.5, -24.5, 0.45, 2.5, 13.75, 0.45, 24.5, 24.5, 0.45, 24.5, 24.5, 0.45, 13.75, 24.5, 0.45, 3, 4.75, 0.45, 2.75, 4.75, 0.45, 4.25, 4.25, 0.45, 4.75, 2.75, 0.45, 4.75, 3, 0.45, 24.5, 24.5, 0.45, 3, 4.75, 0.45, 4.25, 4.25, 0.45, 4.75, 3, 0.45, 24.5, 13.75, 0.45, 24.5, 24.5, 0.45, 13.75, -3, 0.45, 24.5, 3, 0.45, 24.5, 2.75, 0.45, 4.75, -2.75, 0.45, 4.75 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 7, 6, 8 ), PoolIntArray( 8, 6, 9 ), PoolIntArray( 9, 6, 10 ), PoolIntArray( 10, 6, 11 ), PoolIntArray( 15, 14, 12 ), PoolIntArray( 12, 14, 13 ), PoolIntArray( 18, 17, 16 ), PoolIntArray( 20, 19, 21 ), PoolIntArray( 21, 19, 22 ), PoolIntArray( 22, 19, 23 ), PoolIntArray( 23, 19, 24 ), PoolIntArray( 27, 26, 25 ), PoolIntArray( 31, 30, 28 ), PoolIntArray( 28, 30, 29 ), PoolIntArray( 32, 35, 33 ), PoolIntArray( 33, 35, 34 ), PoolIntArray( 39, 38, 36 ), PoolIntArray( 36, 38, 37 ), PoolIntArray( 42, 41, 40 ), PoolIntArray( 44, 43, 45 ), PoolIntArray( 45, 43, 48 ), PoolIntArray( 45, 48, 47 ), PoolIntArray( 45, 47, 46 ), PoolIntArray( 51, 50, 49 ), PoolIntArray( 54, 53, 52 ), PoolIntArray( 57, 56, 55 ), PoolIntArray( 60, 59, 58 ), PoolIntArray( 62, 61, 63 ), PoolIntArray( 63, 61, 66 ), PoolIntArray( 63, 66, 65 ), PoolIntArray( 63, 65, 64 ), PoolIntArray( 70, 69, 67 ), PoolIntArray( 67, 69, 68 ) ]
+
 [node name="TestLevel" type="Spatial"]
 
-[node name="CSGCombiner" type="CSGCombiner" parent="."]
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
+navmesh = SubResource( 1 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="NavigationMeshInstance"]
 use_collision = true
 
-[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+[node name="CSGBox" type="CSGBox" parent="NavigationMeshInstance/CSGCombiner"]
 width = 50.0
 height = 0.1
 depth = 50.0
 
-[node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
+[node name="CSGBox2" type="CSGBox" parent="NavigationMeshInstance/CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.978951, 0 )
 width = 8.0
 depth = 8.0
@@ -28,4 +35,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.46279, 17.0166 )
 auto_fire_weapon = true
 
 [node name="BohrokEnemy" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.12027, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96244, 7.8306 )

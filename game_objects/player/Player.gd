@@ -80,3 +80,7 @@ func _on_FireRate_timeout():
 func _on_Cooldown_timeout():
 	can_fire = true
 	overheat_value = 0.0
+
+
+func _on_HealthSystem_enemy_is_dead():
+	get_tree().reload_current_scene()

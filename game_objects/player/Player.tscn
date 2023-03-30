@@ -20,7 +20,7 @@ bg_color = Color( 0.329412, 0.329412, 0.329412, 0.364706 )
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0, 0.992157, 1, 1 )
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=["player"]]
 script = ExtResource( 2 )
 projectile_scene = ExtResource( 4 )
 fire_spread = Vector2( 10, 10 )
@@ -110,3 +110,4 @@ script = ExtResource( 5 )
 
 [connection signal="timeout" from="FireRate" to="." method="_on_FireRate_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
+[connection signal="enemy_is_dead" from="HealthSystem" to="." method="_on_HealthSystem_enemy_is_dead"]

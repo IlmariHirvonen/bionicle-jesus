@@ -57,4 +57,14 @@ script = ExtResource( 2 )
 anims/Idle = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
+[node name="NavigationAgent" type="NavigationAgent" parent="."]
+target_desired_distance = 1.6
+avoidance_enabled = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="enemy_is_dead" from="HealthSystem" to="." method="_on_HealthSystem_enemy_is_dead"]
+[connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_NavigationAgent_velocity_computed"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

@@ -42,6 +42,7 @@ func _process(delta):
 	if Input.is_action_pressed("shoot") or auto_fire_weapon and can_fire:
 		overheat_value += rand_range(3,4)
 		overheat_value = clamp(overheat_value, 0.0, 100)
+		$Head/Camera/ShootingShake.add_trauma(0.6)
 		if overheat_value >= 100:
 			can_fire = false
 			$Cooldown.start()

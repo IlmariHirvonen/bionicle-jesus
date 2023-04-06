@@ -232,7 +232,7 @@ _global_script_class_icons={
 
 config/name="bionicle-jesus-in-hell"
 config/description="1993 Doom style fps game but with bionicles."
-run/main_scene="res://Test_scene.tscn"
+run/main_scene="res://levels/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

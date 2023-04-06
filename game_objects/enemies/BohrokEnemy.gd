@@ -60,6 +60,7 @@ func _on_NavigationAgent_velocity_computed(safe_velocity):
 
 func _on_AttackTimer_timeout():
 	if current_state == STATES.ATTACKING:
-		if player.has_node("HealthSystem"):
-			player.get_node("HealthSystem").set_health(rand_range(-5.0,-8.0))
+		if not player.is_dead:
+			if player.has_node("HealthSystem"):
+				player.get_node("HealthSystem").set_health(rand_range(-5.0,-8.0))
 	$NavigationAgent.set_target_location(player.global_transform.origin)
